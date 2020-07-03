@@ -14,14 +14,16 @@ ENV LD_LIBRARY_PATH /opt/COMPSs/Bindings/bindings-common/lib:$JAVA_HOME/jre/lib/
 
 # Install COMPSs
 RUN cd /framework && \
-    ./submodules_get.sh && \
-    ./submodules_patch.sh && \
-    sudo -E /framework/builders/buildlocal /opt/COMPSs && \
+    sudo -E /framework/builders/buildlocal  -T -A -K /opt/COMPSs && \
     mv /root/.m2 /home/jenkins/ && \
     rm -rf /root/.cache && \
     sudo chown -R jenkins: /framework && \
     sudo chown -R jenkins: /home/jenkins/ && \
     if [ "$release" = "true" ]; then rm -rf /framework /home/jenkins/.m2 /root/.m2; fi
+
+# LandSupport:
+RUN apt-get update && \
+    apt-get install libpostgresql-jdbc-java
 
 # Expose SSH port and run SSHD
 EXPOSE 22
