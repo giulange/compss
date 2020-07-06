@@ -25,6 +25,8 @@ RUN cd /framework && \
 RUN apt-get update && \
     apt-get install libpostgresql-jdbc-java
 
+COPY start.sh /root/
+
 # Expose SSH port and run SSHD
 EXPOSE 22
-CMD ["/usr/sbin/sshd","-D"]
+CMD ["/root/start.sh"]

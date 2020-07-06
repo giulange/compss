@@ -9,6 +9,7 @@ if [ ! "${COMPSS_HOME: -1}" = "/" ]; then
 fi
 export COMPSS_HOME=${COMPSS_HOME}
 
+
 # Load auxiliar scripts
 source "${COMPSS_HOME}Runtime/scripts/system/commons/version.sh"
 source "${COMPSS_HOME}Runtime/scripts/system/commons/logger.sh"
