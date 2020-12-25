@@ -1,4 +1,6 @@
 #!/bin/bash
+def_cache=''
+NO_CACHE=${1:-$def_cache}
 
 # save the previous image in the meanwhile:
 docker tag compss_tfm compss_tfm-old:old
@@ -8,7 +10,7 @@ docker rmi compss_tfm
 
 # re-build base images:
 #  > tfm
-docker build --no-cache -t compss:latest -f Dockerfile_tfm .
+docker build $NO_CACHE -t compss:latest -f Dockerfile_tfm .
 docker tag compss:latest compss_tfm
 docker rmi compss:latest
 

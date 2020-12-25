@@ -25,8 +25,8 @@ RUN cd /framework && \
 RUN apt-get update && \
     apt-get install libpostgresql-jdbc-java
 
-COPY start_armosa.sh /root/
+COPY start_tfm.sh /root/
 
 # Expose SSH port and run SSHD
 EXPOSE 22
-CMD ["/root/start.sh"]
+CMD ["/root/start_tfm.sh"]
