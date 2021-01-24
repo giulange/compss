@@ -10,7 +10,7 @@ docker rmi compss_tfm
 
 # re-build base images:
 #  > tfm
-docker build $NO_CACHE -t compss:latest -f Dockerfile_tfm .
-docker tag compss:latest compss_tfm
-docker rmi compss:latest
+docker build $NO_CACHE -t compss:tfm -f Dockerfile_tfm .
+docker tag compss:tfm compss_tfm
+docker rmi compss:tfm
 
