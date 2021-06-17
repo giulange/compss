@@ -16,4 +16,8 @@ which, in the container, is seen at
 
 `/logs/compss/`
 
+## PORT
+
+ARMOSA :: 46400
+TFM    :: 46300
 
